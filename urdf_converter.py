@@ -119,6 +119,13 @@ def convert_robot(robot_type, robot_name, project_root):
         urdf_path = os.path.join(project_root, 'ur_description', 'urdf', f'{robot_name}.urdf')
         # UR机器人的mesh文件结构比较特殊
         mesh_source_dir = os.path.join(project_root, 'ur_description', 'meshes')
+    elif robot_type == 'rohand':
+        urdf_path = os.path.join(project_root, 'rohand_urdf_ros2', 'urdf', f'{robot_name}.urdf')
+        # rohand根据左右手选择不同的mesh目录
+        if 'left' in robot_name:
+            mesh_source_dir = os.path.join(project_root, 'rohand_urdf_ros2', 'meshes_l')
+        else:  # right hand
+            mesh_source_dir = os.path.join(project_root, 'rohand_urdf_ros2', 'meshes_r')
     else:
         print(f"❌ 不支持的机器人类型: {robot_type}")
         return False
@@ -225,9 +232,15 @@ def main():
         for f in os.listdir(ur_urdf_dir):
             if f.endswith('.urdf'):
                 robots_to_convert.append(('ur', f.replace('.urdf', '')))
+    # RoHand
+    rohand_urdf_dir = "rohand_urdf_ros2/urdf"
+    if os.path.isdir(rohand_urdf_dir):
+        for f in os.listdir(rohand_urdf_dir):
+            if f.endswith('.urdf'):
+                robots_to_convert.append(('rohand', f.replace('.urdf', '')))
 
     if not robots_to_convert:
-        print("❌ 未找到任何URDF文件，请检查elfin_description和universal_description目录。")
+        print("❌ 未找到任何URDF文件，请检查elfin_description、ur_description和rohand_urdf_ros2目录。")
         return
 
     success_count = 0
