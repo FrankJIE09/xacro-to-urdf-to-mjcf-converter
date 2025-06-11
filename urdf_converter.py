@@ -51,10 +51,10 @@ def add_actor_to_mjcf(mjcf_path, robot_name):
         
         # 为每个关节创建actuator
         for joint_name, joint_type in joints:
-            actuator = ET.SubElement(actuator_section, 'motor')
-            actuator.set('name', f'{joint_name}_motor')
+            actuator = ET.SubElement(actuator_section, 'general')
+            actuator.set('name', f'{joint_name}_actuator')
             actuator.set('joint', joint_name)
-            actuator.set('gear', '1')
+            actuator.set('gainprm', '1')
             if joint_type == 'slide':
                 actuator.set('ctrlrange', '-1 1')
             else:
