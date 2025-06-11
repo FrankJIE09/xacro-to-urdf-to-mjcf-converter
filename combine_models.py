@@ -10,17 +10,20 @@ import os
 import shutil
 
 
-def combine_elfin_rohand():
+def combine_elfin_rohand(hand_type="left"):
     """
-    组合elfin15机器人臂和rohand_left机器人手
+    组合elfin15机器人臂和rohand机器人手
+    
+    Args:
+        hand_type: "left" 或 "right" 指定左手或右手
     """
-    print("🤖 开始组合elfin15机器人臂和rohand_left机器人手...")
+    print(f"🤖 开始组合elfin15机器人臂和rohand_{hand_type}机器人手...")
     
     # 路径定义
     elfin_path = "mjcf_models/elfin15/elfin15.xml"
-    rohand_path = "mjcf_models/rohand_left/rohand_left.xml"
-    output_dir = "mjcf_models/elfin15_rohand_combined"
-    output_path = os.path.join(output_dir, "elfin15_rohand.xml")
+    rohand_path = f"mjcf_models/rohand_{hand_type}/rohand_{hand_type}.xml"
+    output_dir = f"mjcf_models/elfin15_rohand_{hand_type}_combined"
+    output_path = os.path.join(output_dir, f"elfin15_rohand_{hand_type}.xml")
     
     # 创建输出目录
     if os.path.exists(output_dir):
@@ -32,12 +35,12 @@ def combine_elfin_rohand():
     elfin_tree = ET.parse(elfin_path)
     elfin_root = elfin_tree.getroot()
     
-    print("📖 读取rohand_left模型...")
+    print(f"📖 读取rohand_{hand_type}模型...")
     rohand_tree = ET.parse(rohand_path)
     rohand_root = rohand_tree.getroot()
     
     # 修改模型名称
-    elfin_root.set('model', 'elfin15_rohand_combined')
+    elfin_root.set('model', f'elfin15_rohand_{hand_type}_combined')
     
     # 1. 合并asset部分
     print("🔗 合并asset部分...")
@@ -153,7 +156,7 @@ def combine_elfin_rohand():
             shutil.copy(os.path.join(elfin_mesh_dir, file), output_dir)
     
     # 复制rohand的mesh文件并重命名
-    rohand_mesh_dir = "mjcf_models/rohand_left"
+    rohand_mesh_dir = f"mjcf_models/rohand_{hand_type}"
     for file in os.listdir(rohand_mesh_dir):
         if file.endswith('.STL'):
             new_name = f"rohand_{file}"
@@ -237,17 +240,26 @@ def indent_xml(elem, level=0):
 def main():
     """主函数"""
     try:
-        combined_model_path = combine_elfin_rohand()
+        # 组合左手版本
+        print("=" * 60)
+        left_model_path = combine_elfin_rohand("left")
         
-        print("\n🎉 模型组合成功！")
-        print(f"📂 组合模型位于: {combined_model_path}")
+        print("\n" + "=" * 60)
+        # 组合右手版本
+        right_model_path = combine_elfin_rohand("right")
+        
+        print("\n🎉 所有模型组合成功！")
+        print(f"📂 左手组合模型位于: {left_model_path}")
+        print(f"📂 右手组合模型位于: {right_model_path}")
+        
         print("\n🚀 使用以下命令查看组合模型:")
-        print(f"python mjcf_viewer.py {combined_model_path}")
+        print(f"python mjcf_viewer.py {left_model_path}")
+        print(f"python mjcf_viewer.py {right_model_path}")
         
-        # 询问是否立即启动viewer
+        # 询问是否立即启动viewer查看左手模型
         response = 'y'
         if response in ['y', 'yes']:
-            os.system(f"python mjcf_viewer.py {combined_model_path}")
+            os.system(f"python mjcf_viewer.py {left_model_path}")
             
     except Exception as e:
         print(f"❌ 组合失败: {e}")
