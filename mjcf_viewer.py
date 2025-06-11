@@ -134,15 +134,16 @@ class MJCFViewer:
         self.running = True
 
         # 启动控制线程
-        control_thread = threading.Thread(target=self.control_loop, daemon=True)
-        control_thread.start()
+        # control_thread = threading.Thread(target=self.control_loop, daemon=True)
+        # control_thread.start()
 
         # 启动查看器
         with mujoco.viewer.launch_passive(self.model, self.data) as viewer:
             self.viewer = viewer
 
             while self.running and viewer.is_running():
-                self.data.qvel = 10 * (self.data.ctrl-self.data.qpos )
+                if self.data.qvel.__len__() == self.data.ctrl.shape[0]:
+                    self.data.qvel = 10 * (self.data.ctrl-self.data.qpos )
                 # 更新仿真
                 mujoco.mj_step(self.model, self.data)
                 # 同步查看器
