@@ -106,15 +106,15 @@ def combine_elfin_rohand():
     rohand_actuator = rohand_root.find('actuator')
     
     # 添加rohand的actuator，修改名称避免冲突
-    for motor in rohand_actuator.findall('motor'):
-        new_motor = ET.SubElement(elfin_actuator, 'motor')
-        motor_name = motor.get('name')
-        joint_name = motor.get('joint')
+    for actuator in rohand_actuator.findall('general'):
+        new_actuator = ET.SubElement(elfin_actuator, 'general')
+        actuator_name = actuator.get('name')
+        joint_name = actuator.get('joint')
         
-        new_motor.set('name', f'rohand_{motor_name}')
-        new_motor.set('joint', f'rohand_{joint_name}')
-        new_motor.set('gear', motor.get('gear', '1'))
-        new_motor.set('ctrlrange', motor.get('ctrlrange', '-3.14 3.14'))
+        new_actuator.set('name', f'rohand_{actuator_name}')
+        new_actuator.set('joint', f'rohand_{joint_name}')
+        new_actuator.set('gainprm', actuator.get('gainprm', '1'))
+        new_actuator.set('ctrlrange', actuator.get('ctrlrange', '-3.14 3.14'))
     
     # 5. 更新keyframe
     print("🔑 更新keyframe...")

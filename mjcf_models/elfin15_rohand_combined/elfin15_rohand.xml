@@ -9,32 +9,32 @@
     <mesh name="elfin_link4" file="elfin_link4.STL" />
     <mesh name="elfin_link5" file="elfin_link5.STL" />
     <mesh name="elfin_link6" file="elfin_link6.STL" />
-    <mesh name="rohand_base_link" file="rohand_base_link.STL" />
-    <mesh name="rohand_if_slider_link" file="rohand_if_slider_link.STL" />
-    <mesh name="rohand_if_slider_abpart_link" file="rohand_if_slider_abpart_link.STL" />
-    <mesh name="rohand_if_proximal_link" file="rohand_if_proximal_link.STL" />
-    <mesh name="rohand_if_distal_link" file="rohand_if_distal_link.STL" />
-    <mesh name="rohand_if_connecting_link" file="rohand_if_connecting_link.STL" />
-    <mesh name="rohand_mf_slider_link" file="rohand_mf_slider_link.STL" />
-    <mesh name="rohand_mf_slider_abpart_link" file="rohand_mf_slider_abpart_link.STL" />
-    <mesh name="rohand_mf_proximal_link" file="rohand_mf_proximal_link.STL" />
-    <mesh name="rohand_mf_distal_link" file="rohand_mf_distal_link.STL" />
-    <mesh name="rohand_mf_connecting_link" file="rohand_mf_connecting_link.STL" />
-    <mesh name="rohand_rf_slider_link" file="rohand_rf_slider_link.STL" />
-    <mesh name="rohand_rf_slider_abpart_link" file="rohand_rf_slider_abpart_link.STL" />
-    <mesh name="rohand_rf_proximal_link" file="rohand_rf_proximal_link.STL" />
-    <mesh name="rohand_rf_distal_link" file="rohand_rf_distal_link.STL" />
-    <mesh name="rohand_rf_connecting_link" file="rohand_rf_connecting_link.STL" />
-    <mesh name="rohand_lf_slider_link" file="rohand_lf_slider_link.STL" />
-    <mesh name="rohand_lf_slider_abpart_link" file="rohand_lf_slider_abpart_link.STL" />
-    <mesh name="rohand_lf_proximal_link" file="rohand_lf_proximal_link.STL" />
-    <mesh name="rohand_lf_distal_link" file="rohand_lf_distal_link.STL" />
-    <mesh name="rohand_lf_connecting_link" file="rohand_lf_connecting_link.STL" />
-    <mesh name="rohand_th_root_link" file="rohand_th_root_link.STL" />
-    <mesh name="rohand_th_proximal_link" file="rohand_th_proximal_link.STL" />
-    <mesh name="rohand_th_slider_link" file="rohand_th_slider_link.STL" />
-    <mesh name="rohand_th_connecting_link" file="rohand_th_connecting_link.STL" />
-    <mesh name="rohand_th_distal_link" file="rohand_th_distal_link.STL" />
+    <mesh name="rohand_base_link" content_type="model/stl" file="rohand_base_link.STL" />
+    <mesh name="rohand_if_slider_link" content_type="model/stl" file="rohand_if_slider_link.STL" />
+    <mesh name="rohand_if_slider_abpart_link" content_type="model/stl" file="rohand_if_slider_abpart_link.STL" />
+    <mesh name="rohand_if_proximal_link" content_type="model/stl" file="rohand_if_proximal_link.STL" />
+    <mesh name="rohand_if_distal_link" content_type="model/stl" file="rohand_if_distal_link.STL" />
+    <mesh name="rohand_if_connecting_link" content_type="model/stl" file="rohand_if_connecting_link.STL" />
+    <mesh name="rohand_mf_slider_link" content_type="model/stl" file="rohand_mf_slider_link.STL" />
+    <mesh name="rohand_mf_slider_abpart_link" content_type="model/stl" file="rohand_mf_slider_abpart_link.STL" />
+    <mesh name="rohand_mf_proximal_link" content_type="model/stl" file="rohand_mf_proximal_link.STL" />
+    <mesh name="rohand_mf_distal_link" content_type="model/stl" file="rohand_mf_distal_link.STL" />
+    <mesh name="rohand_mf_connecting_link" content_type="model/stl" file="rohand_mf_connecting_link.STL" />
+    <mesh name="rohand_rf_slider_link" content_type="model/stl" file="rohand_rf_slider_link.STL" />
+    <mesh name="rohand_rf_slider_abpart_link" content_type="model/stl" file="rohand_rf_slider_abpart_link.STL" />
+    <mesh name="rohand_rf_proximal_link" content_type="model/stl" file="rohand_rf_proximal_link.STL" />
+    <mesh name="rohand_rf_distal_link" content_type="model/stl" file="rohand_rf_distal_link.STL" />
+    <mesh name="rohand_rf_connecting_link" content_type="model/stl" file="rohand_rf_connecting_link.STL" />
+    <mesh name="rohand_lf_slider_link" content_type="model/stl" file="rohand_lf_slider_link.STL" />
+    <mesh name="rohand_lf_slider_abpart_link" content_type="model/stl" file="rohand_lf_slider_abpart_link.STL" />
+    <mesh name="rohand_lf_proximal_link" content_type="model/stl" file="rohand_lf_proximal_link.STL" />
+    <mesh name="rohand_lf_distal_link" content_type="model/stl" file="rohand_lf_distal_link.STL" />
+    <mesh name="rohand_lf_connecting_link" content_type="model/stl" file="rohand_lf_connecting_link.STL" />
+    <mesh name="rohand_th_root_link" content_type="model/stl" file="rohand_th_root_link.STL" />
+    <mesh name="rohand_th_proximal_link" content_type="model/stl" file="rohand_th_proximal_link.STL" />
+    <mesh name="rohand_th_slider_link" content_type="model/stl" file="rohand_th_slider_link.STL" />
+    <mesh name="rohand_th_connecting_link" content_type="model/stl" file="rohand_th_connecting_link.STL" />
+    <mesh name="rohand_th_distal_link" content_type="model/stl" file="rohand_th_distal_link.STL" />
   </asset>
   <worldbody>
     <geom type="mesh" rgba="0.866667 0.866667 0.890196 1" mesh="elfin_base" />
@@ -198,37 +198,37 @@
     </body>
   </worldbody>
   <actuator>
-    <motor name="elfin_joint1_motor" joint="elfin_joint1" gear="1" ctrlrange="-3.14 3.14" />
-    <motor name="elfin_joint2_motor" joint="elfin_joint2" gear="1" ctrlrange="-3.14 3.14" />
-    <motor name="elfin_joint3_motor" joint="elfin_joint3" gear="1" ctrlrange="-3.14 3.14" />
-    <motor name="elfin_joint4_motor" joint="elfin_joint4" gear="1" ctrlrange="-3.14 3.14" />
-    <motor name="elfin_joint5_motor" joint="elfin_joint5" gear="1" ctrlrange="-3.14 3.14" />
-    <motor name="elfin_joint6_motor" joint="elfin_joint6" gear="1" ctrlrange="-3.14 3.14" />
-    <motor name="rohand_if_slider_link_motor" joint="rohand_if_slider_link" gear="1" ctrlrange="-1 1" />
-    <motor name="rohand_if_slider_abpart_link_motor" joint="rohand_if_slider_abpart_link" gear="1" ctrlrange="-3.14 3.14" />
-    <motor name="rohand_if_proximal_link_motor" joint="rohand_if_proximal_link" gear="1" ctrlrange="-3.14 3.14" />
-    <motor name="rohand_if_distal_link_motor" joint="rohand_if_distal_link" gear="1" ctrlrange="-3.14 3.14" />
-    <motor name="rohand_if_connecting_link_motor" joint="rohand_if_connecting_link" gear="1" ctrlrange="-3.14 3.14" />
-    <motor name="rohand_mf_slider_link_motor" joint="rohand_mf_slider_link" gear="1" ctrlrange="-1 1" />
-    <motor name="rohand_mf_slider_abpart_link_motor" joint="rohand_mf_slider_abpart_link" gear="1" ctrlrange="-3.14 3.14" />
-    <motor name="rohand_mf_proximal_link_motor" joint="rohand_mf_proximal_link" gear="1" ctrlrange="-3.14 3.14" />
-    <motor name="rohand_mf_distal_link_motor" joint="rohand_mf_distal_link" gear="1" ctrlrange="-3.14 3.14" />
-    <motor name="rohand_mf_connecting_link_motor" joint="rohand_mf_connecting_link" gear="1" ctrlrange="-3.14 3.14" />
-    <motor name="rohand_rf_slider_link_motor" joint="rohand_rf_slider_link" gear="1" ctrlrange="-1 1" />
-    <motor name="rohand_rf_slider_abpart_link_motor" joint="rohand_rf_slider_abpart_link" gear="1" ctrlrange="-3.14 3.14" />
-    <motor name="rohand_rf_proximal_link_motor" joint="rohand_rf_proximal_link" gear="1" ctrlrange="-3.14 3.14" />
-    <motor name="rohand_rf_distal_link_motor" joint="rohand_rf_distal_link" gear="1" ctrlrange="-3.14 3.14" />
-    <motor name="rohand_rf_connecting_link_motor" joint="rohand_rf_connecting_link" gear="1" ctrlrange="-3.14 3.14" />
-    <motor name="rohand_lf_slider_link_motor" joint="rohand_lf_slider_link" gear="1" ctrlrange="-1 1" />
-    <motor name="rohand_lf_slider_abpart_link_motor" joint="rohand_lf_slider_abpart_link" gear="1" ctrlrange="-3.14 3.14" />
-    <motor name="rohand_lf_proximal_link_motor" joint="rohand_lf_proximal_link" gear="1" ctrlrange="-3.14 3.14" />
-    <motor name="rohand_lf_distal_link_motor" joint="rohand_lf_distal_link" gear="1" ctrlrange="-3.14 3.14" />
-    <motor name="rohand_lf_connecting_link_motor" joint="rohand_lf_connecting_link" gear="1" ctrlrange="-3.14 3.14" />
-    <motor name="rohand_th_root_link_motor" joint="rohand_th_root_link" gear="1" ctrlrange="-3.14 3.14" />
-    <motor name="rohand_th_proximal_link_motor" joint="rohand_th_proximal_link" gear="1" ctrlrange="-3.14 3.14" />
-    <motor name="rohand_th_slider_link_motor" joint="rohand_th_slider_link" gear="1" ctrlrange="-1 1" />
-    <motor name="rohand_th_connecting_link_motor" joint="rohand_th_connecting_link" gear="1" ctrlrange="-3.14 3.14" />
-    <motor name="rohand_th_distal_link_motor" joint="rohand_th_distal_link" gear="1" ctrlrange="-3.14 3.14" />
+    <general name="elfin_joint1_actuator" joint="elfin_joint1" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="elfin_joint2_actuator" joint="elfin_joint2" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="elfin_joint3_actuator" joint="elfin_joint3" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="elfin_joint4_actuator" joint="elfin_joint4" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="elfin_joint5_actuator" joint="elfin_joint5" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="elfin_joint6_actuator" joint="elfin_joint6" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="rohand_if_slider_link_actuator" joint="rohand_if_slider_link" gainprm="1" ctrlrange="-1 1" />
+    <general name="rohand_if_slider_abpart_link_actuator" joint="rohand_if_slider_abpart_link" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="rohand_if_proximal_link_actuator" joint="rohand_if_proximal_link" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="rohand_if_distal_link_actuator" joint="rohand_if_distal_link" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="rohand_if_connecting_link_actuator" joint="rohand_if_connecting_link" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="rohand_mf_slider_link_actuator" joint="rohand_mf_slider_link" gainprm="1" ctrlrange="-1 1" />
+    <general name="rohand_mf_slider_abpart_link_actuator" joint="rohand_mf_slider_abpart_link" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="rohand_mf_proximal_link_actuator" joint="rohand_mf_proximal_link" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="rohand_mf_distal_link_actuator" joint="rohand_mf_distal_link" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="rohand_mf_connecting_link_actuator" joint="rohand_mf_connecting_link" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="rohand_rf_slider_link_actuator" joint="rohand_rf_slider_link" gainprm="1" ctrlrange="-1 1" />
+    <general name="rohand_rf_slider_abpart_link_actuator" joint="rohand_rf_slider_abpart_link" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="rohand_rf_proximal_link_actuator" joint="rohand_rf_proximal_link" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="rohand_rf_distal_link_actuator" joint="rohand_rf_distal_link" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="rohand_rf_connecting_link_actuator" joint="rohand_rf_connecting_link" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="rohand_lf_slider_link_actuator" joint="rohand_lf_slider_link" gainprm="1" ctrlrange="-1 1" />
+    <general name="rohand_lf_slider_abpart_link_actuator" joint="rohand_lf_slider_abpart_link" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="rohand_lf_proximal_link_actuator" joint="rohand_lf_proximal_link" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="rohand_lf_distal_link_actuator" joint="rohand_lf_distal_link" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="rohand_lf_connecting_link_actuator" joint="rohand_lf_connecting_link" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="rohand_th_root_link_actuator" joint="rohand_th_root_link" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="rohand_th_proximal_link_actuator" joint="rohand_th_proximal_link" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="rohand_th_slider_link_actuator" joint="rohand_th_slider_link" gainprm="1" ctrlrange="-1 1" />
+    <general name="rohand_th_connecting_link_actuator" joint="rohand_th_connecting_link" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="rohand_th_distal_link_actuator" joint="rohand_th_distal_link" gainprm="1" ctrlrange="-3.14 3.14" />
   </actuator>
   <keyframe>
     <key name="home" qpos="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" />
