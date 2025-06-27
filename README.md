@@ -69,13 +69,13 @@ python urdf_converter.py
 使用项目提供的 `mjcf_viewer.py` 脚本来可视化和验证转换后的模型。
 
 ```bash
-python mjcf_viewer.py mjcf_models/elfin5/elfin5.xml
+python mjcf_viewer.py mjcf_models/elfin5/elfin5_with_sphere.xml
 ```
 
 例如，要查看 `elfin5` 模型：
 
 ```bash
-python mjcf_viewer.py mjcf_models/elfin5/elfin5.xml
+python mjcf_viewer.py mjcf_models/elfin5/elfin5_with_sphere.xml
 ```
 
 ## 🧰 辅助脚本说明

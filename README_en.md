@@ -67,13 +67,13 @@ Upon successful conversion, the results will be saved in the `mjcf_models/` dire
 Use the provided `mjcf_viewer.py` script to visualize and verify the converted model.
 
 ```bash
-python mjcf_viewer.py mjcf_models/elfin5/elfin5.xml
+python mjcf_viewer.py mjcf_models/elfin5/elfin5_with_sphere.xml
 ```
 
 For example, to view the `elfin5` model:
 
 ```bash
-python mjcf_viewer.py mjcf_models/elfin5/elfin5.xml
+python mjcf_viewer.py mjcf_models/elfin5/elfin5_with_sphere.xml
 ```
 
 ## 🧰 Auxiliary Scripts
