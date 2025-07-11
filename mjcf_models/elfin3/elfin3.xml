@@ -2,13 +2,13 @@
 <mujoco model="elfin3">
   <compiler angle="radian" />
   <asset>
-    <mesh name="elfin_base" file="elfin_base.STL" />
-    <mesh name="elfin_link1" file="elfin_link1.STL" />
-    <mesh name="elfin_link2" file="elfin_link2.STL" />
-    <mesh name="elfin_link3" file="elfin_link3.STL" />
-    <mesh name="elfin_link4" file="elfin_link4.STL" />
-    <mesh name="elfin_link5" file="elfin_link5.STL" />
-    <mesh name="elfin_link6" file="elfin_link6.STL" />
+    <mesh name="elfin_base" content_type="model/stl" file="elfin_base.STL" />
+    <mesh name="elfin_link1" content_type="model/stl" file="elfin_link1.STL" />
+    <mesh name="elfin_link2" content_type="model/stl" file="elfin_link2.STL" />
+    <mesh name="elfin_link3" content_type="model/stl" file="elfin_link3.STL" />
+    <mesh name="elfin_link4" content_type="model/stl" file="elfin_link4.STL" />
+    <mesh name="elfin_link5" content_type="model/stl" file="elfin_link5.STL" />
+    <mesh name="elfin_link6" content_type="model/stl" file="elfin_link6.STL" />
   </asset>
   <worldbody>
     <geom quat="1 0 0 -1.8366e-06" type="mesh" rgba="0.866667 0.866667 0.890196 1" mesh="elfin_base" />

@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="jaka_zu18">
+  <compiler angle="radian" />
+  <asset>
+    <mesh name="base_link" content_type="model/stl" file="base_link.STL" />
+    <mesh name="Link_01" content_type="model/stl" file="Link_01.STL" />
+    <mesh name="Link_02" content_type="model/stl" file="Link_02.STL" />
+    <mesh name="Link_03" content_type="model/stl" file="Link_03.STL" />
+    <mesh name="Link_04" content_type="model/stl" file="Link_04.STL" />
+    <mesh name="Link_05" content_type="model/stl" file="Link_05.STL" />
+    <mesh name="Link_06" content_type="model/stl" file="Link_06.STL" />
+  </asset>
+  <worldbody>
+    <geom type="mesh" rgba="0.64706 0.61961 0.58824 1" mesh="base_link" />
+    <body name="Link_1" pos="0 0 0.14265">
+      <inertial pos="-1.3532e-07 0.0039698 -0.0033275" quat="0.999994 -0.00339528 6.52747e-06 2.81519e-05" mass="29.677" diaginertia="0.13784 0.134602 0.0925821" />
+      <joint name="joint_1" pos="0 0 0" axis="0 0 -1" />
+      <geom type="mesh" rgba="0.64706 0.61961 0.58824 1" mesh="Link_01" />
+      <body name="Link_2" quat="0.707105 0.707108 0 0">
+        <inertial pos="0.20686 3.446e-07 -0.18004" quat="0.498859 0.501138 0.501138 0.498859" mass="76.064" diaginertia="3.2427 3.18366 0.233239" />
+        <joint name="joint_2" pos="0 0 0" axis="0 0 1" />
+        <geom type="mesh" rgba="0.64706 0.61961 0.58824 1" mesh="Link_02" />
+        <body name="Link_3" pos="0.51 0 0">
+          <inertial pos="0.2114 -1.2507e-07 -0.046052" quat="0.51161 0.488113 0.488113 0.51161" mass="24.172" diaginertia="0.59871 0.594096 0.0294998" />
+          <joint name="joint_3" pos="0 0 0" axis="0 0 1" />
+          <geom type="mesh" rgba="0.64706 0.61961 0.58824 1" mesh="Link_03" />
+          <body name="Link_4" pos="0.4 0 -0.154">
+            <inertial pos="4.6823e-07 -0.003388 0.0032625" quat="0.700018 0.714125 1.14804e-05 -9.90877e-06" mass="6.9374" diaginertia="0.012275 0.0118154 0.00826379" />
+            <joint name="joint_4" pos="0 0 0" axis="0 0 -1" />
+            <geom type="mesh" rgba="0.64706 0.61961 0.58824 1" mesh="Link_04" />
+            <body name="Link_5" pos="0 -0.115 0" quat="0.707105 0.707108 0 0">
+              <inertial pos="3.9968e-07 0.001346 -0.0031552" quat="0.705096 0.709112 -1.58689e-05 1.57791e-05" mass="7.1716" diaginertia="0.013285 0.0128211 0.00850796" />
+              <joint name="joint_5" pos="0 0 0" axis="0 0 1" />
+              <geom type="mesh" rgba="0.64706 0.61961 0.58824 1" mesh="Link_05" />
+              <body name="Link_6" pos="0 0.1035 0" quat="0.707105 -0.707108 0 0">
+                <inertial pos="2.2277e-05 0.00011612 -0.021557" quat="-0.135305 0.693708 0.137256 0.69399" mass="1.7664" diaginertia="0.00177971 0.00107617 0.00107422" />
+                <joint name="joint_6" pos="0 0 0" axis="0 0 1" />
+                <geom type="mesh" rgba="0.64706 0.61961 0.58824 1" mesh="Link_06" />
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <general name="joint_1_actuator" joint="joint_1" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="joint_2_actuator" joint="joint_2" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="joint_3_actuator" joint="joint_3" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="joint_4_actuator" joint="joint_4" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="joint_5_actuator" joint="joint_5" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="joint_6_actuator" joint="joint_6" gainprm="1" ctrlrange="-3.14 3.14" />
+  </actuator>
+  <keyframe>
+    <key name="home" qpos="0 0 0 0 0 0" />
+  </keyframe>
+</mujoco>

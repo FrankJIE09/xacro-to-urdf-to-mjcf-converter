@@ -126,6 +126,9 @@ def convert_robot(robot_type, robot_name, project_root):
             mesh_source_dir = os.path.join(project_root, 'rohand_urdf_ros2', 'meshes_l')
         else:  # right hand
             mesh_source_dir = os.path.join(project_root, 'rohand_urdf_ros2', 'meshes_r')
+    elif robot_type == 'jaka':
+        urdf_path = os.path.join(project_root, 'jaka_description', 'urdf', f'{robot_name}.urdf')
+        mesh_source_dir = os.path.join(project_root, 'jaka_description', 'meshes')
     else:
         print(f"❌ 不支持的机器人类型: {robot_type}")
         return False
@@ -238,9 +241,15 @@ def main():
         for f in os.listdir(rohand_urdf_dir):
             if f.endswith('.urdf'):
                 robots_to_convert.append(('rohand', f.replace('.urdf', '')))
+    # Jaka
+    jaka_urdf_dir = "jaka_description/urdf"
+    if os.path.isdir(jaka_urdf_dir):
+        for f in os.listdir(jaka_urdf_dir):
+            if f.endswith('.urdf'):
+                robots_to_convert.append(('jaka', f.replace('.urdf', '')))
 
     if not robots_to_convert:
-        print("❌ 未找到任何URDF文件，请检查elfin_description、ur_description和rohand_urdf_ros2目录。")
+        print("❌ 未找到任何URDF文件，请检查elfin_description、ur_description、rohand_urdf_ros2和jaka_description目录。")
         return
 
     success_count = 0
