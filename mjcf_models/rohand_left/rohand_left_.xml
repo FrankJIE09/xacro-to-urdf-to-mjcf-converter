@@ -6,10 +6,9 @@ RoHand 左手 MuJoCo 物理仿真模型
 本文件定义了一个高精度的机器人左手模型，包含5个手指的完整运动学和动力学特性。
 模型特点：
 - 25个自由度关节 (每个手指5个关节)
-- 5个集成腱驱动系统 (实现手指协调弯曲，包含外展关节耦合)
-- 6个执行器 (5个弯曲 + 1个拇指旋转)
+- 5个腱驱动系统 (实现手指协调弯曲)
+- 10个执行器 (5个弯曲 + 5个外展，其中外展执行器已注释)
 - 完整的惯性属性和碰撞检测
-- 自然的抓取动作 (弯曲时自动收拢)
 =================================================================================
 -->
 <mujoco model="rohand_left">
@@ -281,59 +280,49 @@ RoHand 左手 MuJoCo 物理仿真模型
    腱/索驱动系统: 定义关节之间的耦合关系，模拟真实手指的腱索驱动机制
    ================================================================================= -->
   <tendon>
-    <!-- 食指腱索系统：协调的5关节弯曲机制 -->
+    <!-- 食指腱索系统：通过一个滑动关节驱动两个弯曲关节 -->
     <fixed name="index_finger_tendon">
-      <joint joint="if_slider_link"       coef="1"/>      <!-- 滑动关节：主驱动源 -->
-      <joint joint="if_proximal_link"     coef="-0.8"/>   <!-- 近端关节：80%耦合，主要弯曲 -->
-      <joint joint="if_distal_link"       coef="-0.6"/>   <!-- 远端关节：60%耦合，指尖弯曲 -->
-      <joint joint="if_connecting_link"   coef="-0.4"/>   <!-- 连接关节：40%耦合，辅助动作 -->
+      <joint joint="if_slider_link"    coef="1"/>     <!-- 滑动关节：正向驱动 -->
+      <joint joint="if_slider_abpart_link"    coef="-0.5"/>     <!-- 滑动关节：正向驱动 -->
+      <joint joint="if_proximal_link"  coef="-0.5"/>  <!-- 近端关节：50%耦合比例 -->
+      <joint joint="if_distal_link"    coef="-0.5"/>  <!-- 远端关节：50%耦合比例 -->
+      <joint joint="if_connecting_link"    coef="-0.5"/>  <!-- 远端关节：50%耦合比例 -->
     </fixed>
 
-    <!-- 中指腱索系统：最强的协调弯曲，作为主要抓取手指 -->
+    <!-- 中指腱索系统：更强的耦合比例，实现更协调的弯曲 -->
     <fixed name="middle_finger_tendon">
-      <joint joint="mf_slider_link"       coef="1"/>      <!-- 滑动关节：主驱动源 -->
-      <joint joint="mf_slider_abpart_link" coef="-0.2"/>   <!-- 外展关节：20%耦合，轻微协同 -->
-      <joint joint="mf_proximal_link"     coef="-1.0"/>   <!-- 近端关节：100%耦合，强力弯曲 -->
-      <joint joint="mf_distal_link"       coef="-0.8"/>   <!-- 远端关节：80%耦合，协调弯曲 -->
-      <joint joint="mf_connecting_link"   coef="-0.5"/>   <!-- 连接关节：50%耦合，稳定支撑 -->
+      <joint joint="mf_slider_link"    coef="1"/>     <!-- 滑动关节：正向驱动 -->
+      <joint joint="mf_proximal_link"  coef="-1"/>    <!-- 近端关节：100%耦合 -->
+      <joint joint="mf_distal_link"    coef="-1"/>    <!-- 远端关节：100%耦合 -->
     </fixed>
 
-    <!-- 无名指腱索系统：与中指协调，稍弱的耦合力度 -->
+    <!-- 无名指腱索系统：与中指相同的耦合策略 -->
     <fixed name="ring_finger_tendon">
-      <joint joint="rf_slider_link"       coef="1"/>      <!-- 滑动关节：主驱动源 -->
-      <joint joint="rf_slider_abpart_link" coef="-0.15"/>  <!-- 外展关节：15%耦合，协同收拢 -->
-      <joint joint="rf_proximal_link"     coef="-0.9"/>   <!-- 近端关节：90%耦合 -->
-      <joint joint="rf_distal_link"       coef="-0.7"/>   <!-- 远端关节：70%耦合 -->
-      <joint joint="rf_connecting_link"   coef="-0.4"/>   <!-- 连接关节：40%耦合 -->
+      <joint joint="rf_slider_link"    coef="1"/>     <!-- 滑动关节：正向驱动 -->
+      <joint joint="rf_proximal_link"  coef="-1"/>    <!-- 近端关节：100%耦合 -->
+      <joint joint="rf_distal_link"    coef="-1"/>    <!-- 远端关节：100%耦合 -->
     </fixed>
 
-    <!-- 小指腱索系统：较小的力度，适应小指的灵活性 -->
+    <!-- 小指腱索系统：与中指相同的耦合策略 -->
     <fixed name="little_finger_tendon">
-      <joint joint="lf_slider_link"       coef="1"/>      <!-- 滑动关节：主驱动源 -->
-      <joint joint="lf_slider_abpart_link" coef="-0.1"/>   <!-- 外展关节：10%耦合，轻微收拢 -->
-      <joint joint="lf_proximal_link"     coef="-0.7"/>   <!-- 近端关节：70%耦合 -->
-      <joint joint="lf_distal_link"       coef="-0.5"/>   <!-- 远端关节：50%耦合 -->
-      <joint joint="lf_connecting_link"   coef="-0.3"/>   <!-- 连接关节：30%耦合 -->
+      <joint joint="lf_slider_link"    coef="1"/>     <!-- 滑动关节：正向驱动 -->
+      <joint joint="lf_proximal_link"  coef="-1"/>    <!-- 近端关节：100%耦合 -->
+      <joint joint="lf_distal_link"    coef="-1"/>    <!-- 远端关节：100%耦合 -->
     </fixed>
 
-    <!-- 拇指腱索系统：复合运动，包含滑动和弯曲（旋转关节独立控制） -->
+    <!-- 拇指腱索系统：包含旋转和弯曲的复合运动 -->
     <fixed name="thumb_tendon">
-      <joint joint="th_slider_link"       coef="1"/>      <!-- 滑动关节：主驱动源 -->
-      <joint joint="th_proximal_link"     coef="-0.8"/>   <!-- 近端关节：80%耦合 -->
-      <joint joint="th_distal_link"       coef="-0.6"/>   <!-- 远端关节：60%耦合 -->
-      <joint joint="th_connecting_link"   coef="-0.4"/>   <!-- 连接关节：40%耦合 -->
+      <joint joint="th_root_link"     coef="1"/>      <!-- 根部旋转：正向驱动 -->
+      <joint joint="th_proximal_link" coef="-1"/>     <!-- 近端关节：100%耦合 -->
+      <joint joint="th_distal_link"   coef="-0.8"/>   <!-- 远端关节：80%耦合 -->
     </fixed>
-
-
   </tendon>
 
   <!-- =================================================================================
    执行器定义: 定义如何控制模型运动，包括电机类型、控制参数和范围限制
    ================================================================================= -->
   <actuator>
-    <!-- =================================================================================
-     弯曲执行器：通过腱索系统驱动手指弯曲运动
-     ================================================================================= -->
+    <!-- 弯曲执行器：通过腱索系统驱动手指弯曲运动 -->
     <!-- kp=100: 位置控制增益，数值越大响应越快但可能振荡 -->
     <!-- ctrlrange: 控制信号范围，-1.0表示完全展开，1.0表示完全弯曲 -->
     
@@ -343,10 +332,13 @@ RoHand 左手 MuJoCo 物理仿真模型
     <position name="little_finger_flex" tendon="little_finger_tendon" kp="100" ctrllimited="true" ctrlrange="-1.0 1.0"/>  <!-- 小指弯曲控制 -->
     <position name="thumb_flex"         tendon="thumb_tendon"         kp="100" ctrllimited="true" ctrlrange="-1.0 1.0"/>  <!-- 拇指弯曲控制 -->
 
-    <!-- =================================================================================
-     拇指旋转执行器：独立控制拇指的对掌运动
-     ================================================================================= -->
-    <position name="thumb_rot"        joint="th_root_link"       kp="100" ctrllimited="true" ctrlrange="-0.035 1.605"/>  <!-- 拇指旋转控制 -->
+    <!-- 外展执行器：直接控制单个关节的侧向运动 (当前已注释，可根据需要启用) -->
+    <!-- 这些执行器可以实现手指的张开/合拢动作，用于精细抓取操作 -->
+<!--    <position name="index_finger_ab"  joint="if_slider_abpart_link"  kp="100" ctrllimited="true" ctrlrange="-0.3 0.3"/>   食指外展控制 -->
+<!--    <position name="middle_finger_ab" joint="mf_slider_abpart_link" kp="100" ctrllimited="true" ctrlrange="-0.3 0.3"/>   中指外展控制 -->
+<!--    <position name="ring_finger_ab"   joint="rf_slider_abpart_link"   kp="100" ctrllimited="true" ctrlrange="-0.3 0.3"/>   无名指外展控制 -->
+<!--    <position name="little_finger_ab" joint="lf_slider_abpart_link" kp="100" ctrllimited="true" ctrlrange="-0.3 0.3"/>   小指外展控制 -->
+    <position name="thumb_rot"        joint="th_root_link"       kp="100" ctrllimited="true" ctrlrange="-0.035 1.605"/>  拇指旋转控制
   </actuator>
 
   <!-- =================================================================================
@@ -355,53 +347,7 @@ RoHand 左手 MuJoCo 物理仿真模型
   <keyframe>
     <!-- 初始姿态：所有关节都处于零位（完全展开状态） -->
     <!-- qpos数组包含25个值，对应25个关节的初始角度/位置 -->
-    <!-- 
-    关节顺序分解：
-    食指 (5个): if_slider_link, if_slider_abpart_link, if_proximal_link, if_distal_link, if_connecting_link
-    中指 (5个): mf_slider_link, mf_slider_abpart_link, mf_proximal_link, mf_distal_link, mf_connecting_link  
-    无名指(5个): rf_slider_link, rf_slider_abpart_link, rf_proximal_link, rf_distal_link, rf_connecting_link
-    小指 (5个): lf_slider_link, lf_slider_abpart_link, lf_proximal_link, lf_distal_link, lf_connecting_link
-    拇指 (5个): th_root_link, th_proximal_link, th_slider_link, th_connecting_link, th_distal_link
-    总计: 25个自由度
-    
-    当前执行器配置:
-    - 5个弯曲执行器 (每个手指通过腱索驱动所有关节的协调弯曲，包含外展关节的耦合)
-    - 1个拇指旋转执行器 (独立控制拇指对掌动作)
-    总计: 6个控制输入
-    
-    说明: 外展动作已集成到弯曲控制中，手指弯曲时会自然产生收拢效果
-    -->
+    <!-- 顺序：食指5个 + 中指5个 + 无名指5个 + 小指5个 + 拇指5个 = 25个自由度 -->
     <key name="home" qpos="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
   </keyframe>
-
-<!-- 
-=================================================================================
-控制系统总结
-=================================================================================
-
-本模型采用集成式腱驱动控制系统，具有以下特点：
-
-1. 简化控制接口:
-   - 仅需6个控制信号即可实现复杂的手部动作
-   - 5个弯曲信号 + 1个拇指旋转信号
-
-2. 自然协调动作:
-   - 每个手指的弯曲会自动驱动所有相关关节
-   - 外展关节的负系数实现弯曲时的自然收拢
-   - 模拟真实人手的腱索驱动机制
-
-3. 分层控制策略:
-   - 主驱动: 滑动关节 (coef=1)
-   - 主要弯曲: 近端关节 (coef=-0.7到-1.0)  
-   - 协调弯曲: 远端关节 (coef=-0.5到-0.8)
-   - 稳定支撑: 连接关节 (coef=-0.3到-0.5)
-   - 收拢协同: 外展关节 (coef=-0.1到-0.2)
-
-4. 控制建议:
-   - 弯曲信号范围: -1.0(完全展开) 到 1.0(完全弯曲)
-   - 拇指旋转范围: -0.035(-2°) 到 1.605(92°)
-   - 推荐先设置拇指旋转位置，再控制各手指弯曲
-
-=================================================================================
--->
 </mujoco>

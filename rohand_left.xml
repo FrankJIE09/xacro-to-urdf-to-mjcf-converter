@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="rohand_left">
+  <!-- =================================================================================
+   模型全局设置
+   ================================================================================= -->
+  <compiler angle="radian" />
+
+  <!-- =================================================================================
+   资源文件定义: 定义所有用到的mesh（3D模型）文件
+   ================================================================================= -->
+  <asset>
+    <mesh name="base_link" file="base_link.STL" />
+    <mesh name="if_slider_link" file="if_slider_link.STL" />
+    <mesh name="if_slider_abpart_link" file="if_slider_abpart_link.STL" />
+    <mesh name="if_proximal_link" file="if_proximal_link.STL" />
+    <mesh name="if_distal_link" file="if_distal_link.STL" />
+    <mesh name="mf_slider_link" file="mf_slider_link.STL" />
+    <mesh name="mf_slider_abpart_link" file="mf_slider_abpart_link.STL" />
+    <mesh name="mf_proximal_link" file="mf_proximal_link.STL" />
+    <mesh name="mf_distal_link" file="mf_distal_link.STL" />
+    <mesh name="rf_slider_link" file="rf_slider_link.STL" />
+    <mesh name="rf_slider_abpart_link" file="rf_slider_abpart_link.STL" />
+    <mesh name="rf_proximal_link" file="rf_proximal_link.STL" />
+    <mesh name="rf_distal_link" file="rf_distal_link.STL" />
+    <mesh name="lf_slider_link" file="lf_slider_link.STL" />
+    <mesh name="lf_slider_abpart_link" file="lf_slider_abpart_link.STL" />
+    <mesh name="lf_proximal_link" file="lf_proximal_link.STL" />
+    <mesh name="lf_distal_link" file="lf_distal_link.STL" />
+    <mesh name="th_root_link" file="th_root_link.STL" />
+    <mesh name="th_proximal_link" file="th_proximal_link.STL" />
+    <mesh name="th_distal_link" file="th_distal_link.STL" />
+  </asset>
+
+  <!-- =================================================================================
+   世界与模型结构: 定义了手掌和所有手指的层级关系、关节和物理属性
+   ================================================================================= -->
+  <worldbody>
+    <geom type="mesh" mesh="base_link" />
+
+    <!-- ==================== 食指 (Index Finger) ==================== -->
+    <body name="index_finger_base" pos="-0.093142 0.028393 -0.006081" quat="0.999139 0 0 -0.0414781">
+      <joint name="index_finger_slide" type="hinge" axis="1 0 0" range="-0.02 0.01" damping="1000" />
+      <geom type="mesh" mesh="if_slider_link" />
+      <body name="index_finger_abpart_body" pos="-0.0071723 0 0" quat="0.999042 -0.0436027 -0.00362178 0.000158074">
+        <joint name="index_finger_abpart" type="hinge" axis="0 1 0" range="-0.3 0.3" damping="1"/>
+        <geom type="mesh" mesh="if_slider_abpart_link" />
+        <body name="index_finger_proximal_body" pos="-0.019548 0.0025 0.008561" quat="0.998186 -0.043753 -0.00181054 -0.0413059">
+          <joint name="index_finger_proximal" type="hinge" axis="0 1 0" range="-2.7 0" damping="1"/>
+          <geom type="mesh" mesh="if_proximal_link" />
+          <body name="index_finger_distal_body" pos="-0.034061 0 -0.011405">
+            <joint name="index_finger_distal" type="hinge" axis="0 1 0" range="-2.7 0" damping="1"/>
+            <geom type="mesh" mesh="if_distal_link" />
+          </body>
+        </body>
+      </body>
+    </body>
+
+    <!-- ==================== 中指 (Middle Finger) ==================== -->
+    <body name="middle_finger_base" pos="-0.095789 0.010504 -0.001815" quat="0.999978 0 0 -0.00661495">
+      <joint name="middle_finger_slide" type="slide" axis="1 0 0" range="-0.003 0.016" damping="5"/>
+      <geom type="mesh" mesh="mf_slider_link" />
+      <body name="middle_finger_abpart_body" pos="-0.0071723 0 0" quat="1 0 0 0">
+        <joint name="middle_finger_abpart" type="hinge" axis="0 1 0" range="-0.3 0.3" damping="1"/>
+        <geom type="mesh" mesh="mf_slider_abpart_link" />
+        <body name="middle_finger_proximal_body" pos="-0.020181 0.000143 0.008603" quat="0.999978 0 0 -0.00662245">
+          <joint name="middle_finger_proximal" type="hinge" axis="0 1 0" range="-1.7 0" damping="2"/>
+          <geom type="mesh" mesh="mf_proximal_link" />
+          <body name="middle_finger_distal_body" pos="-0.038293 0 -0.014673">
+            <joint name="middle_finger_distal" type="hinge" axis="0 1 0" range="-1.7 0" damping="2"/>
+            <geom type="mesh" mesh="mf_distal_link" />
+          </body>
+        </body>
+      </body>
+    </body>
+
+    <!-- ==================== 无名指 (Ring Finger) ==================== -->
+    <body name="ring_finger_base" pos="-0.093265 -0.0081344 -0.0025598" quat="0.9996 0 0 0.0282897">
+      <joint name="ring_finger_slide" type="slide" axis="1 0 0" range="-0.003 0.016" damping="5"/>
+      <geom type="mesh" mesh="rf_slider_link" />
+      <body name="ring_finger_abpart_body" pos="-0.0071723 0 0" quat="1 0 0 0">
+        <joint name="ring_finger_abpart" type="hinge" axis="0 1 0" range="-0.3 0.3" damping="1"/>
+        <geom type="mesh" mesh="rf_slider_abpart_link" />
+        <body name="ring_finger_proximal_body" pos="-0.019975 -0.0010597 0.008878" quat="0.9996 0 0 0.0282972">
+          <joint name="ring_finger_proximal" type="hinge" axis="0 1 0" range="-1.7 0" damping="2"/>
+          <geom type="mesh" mesh="rf_proximal_link" />
+          <body name="ring_finger_distal_body" pos="-0.033643 0 -0.012583">
+            <joint name="ring_finger_distal" type="hinge" axis="0 1 0" range="-1.7 0" damping="2"/>
+            <geom type="mesh" mesh="rf_distal_link" />
+          </body>
+        </body>
+      </body>
+    </body>
+
+    <!-- ==================== 小指 (Little Finger) ==================== -->
+    <body name="little_finger_base" pos="-0.089577 -0.026231 -0.0050791" quat="0.998251 0 0 0.0591205">
+      <joint name="little_finger_slide" type="slide" axis="1 0 0" range="-0.003 0.016" damping="5"/>
+      <geom type="mesh" mesh="lf_slider_link" />
+      <body name="little_finger_abpart_body" pos="-0.0071723 0 0" quat="0.999035 0.0436263 0 0">
+        <joint name="little_finger_abpart" type="hinge" axis="0 1 0" range="-0.3 0.3" damping="1"/>
+        <geom type="mesh" mesh="lf_slider_abpart_link" />
+        <body name="little_finger_proximal_body" pos="-0.019893 -0.002229 0.008556" quat="0.997298 0.0438248 0 0.0589093">
+          <joint name="little_finger_proximal" type="hinge" axis="0 1 0" range="-1.7 0" damping="2"/>
+          <geom type="mesh" mesh="lf_proximal_link" />
+          <body name="little_finger_distal_body" pos="-0.029737 0 -0.011632">
+            <joint name="little_finger_distal" type="hinge" axis="0 1 0" range="-1.7 0" damping="2"/>
+            <geom type="mesh" mesh="lf_distal_link" />
+          </body>
+        </body>
+      </body>
+    </body>
+
+    <!-- ==================== 拇指 (Thumb) ==================== -->
+    <body name="thumb_base" pos="-0.04608 0.020016 -0.0232" quat="0.994021 0 -0.108986 0">
+      <joint name="thumb_rotation" type="hinge" axis="-1 0 0" range="-0.5 1.0" damping="1"/>
+      <geom type="mesh" mesh="th_root_link" />
+      <body name="thumb_proximal_body" pos="-0.0067545 0.02098 -0.0027" quat="1 0 0 0">
+        <joint name="thumb_proximal" type="hinge" axis="0 0 -1" range="-1.5 0" damping="2"/>
+        <geom type="mesh" mesh="th_proximal_link" />
+        <body name="thumb_distal_body" pos="-0.050881 0.013011 -0.0020153">
+          <joint name="thumb_distal" type="hinge" axis="0 0 -1" range="-1.2 0" damping="2"/>
+          <geom type="mesh" mesh="th_distal_link" />
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <!-- =================================================================================
+   联动腱定义: 定义关节之间的联动关系
+   ================================================================================= -->
+  <tendon>
+    <!-- 食指联动腱 -->
+    <fixed name="index_finger_tendon">
+      <joint joint="index_finger_slide"    coef="1"/>
+      <joint joint="index_finger_proximal" coef="-0.5"/>
+      <joint joint="index_finger_distal"   coef="-0.5"/>
+    </fixed>
+
+    <!-- 中指联动腱 -->
+    <fixed name="middle_finger_tendon">
+      <joint joint="middle_finger_slide"    coef="1"/>
+      <joint joint="middle_finger_proximal" coef="-1"/>
+      <joint joint="middle_finger_distal"   coef="-1"/>
+    </fixed>
+
+    <!-- 无名指联动腱 -->
+    <fixed name="ring_finger_tendon">
+      <joint joint="ring_finger_slide"    coef="1"/>
+      <joint joint="ring_finger_proximal" coef="-1"/>
+      <joint joint="ring_finger_distal"   coef="-1"/>
+    </fixed>
+
+    <!-- 小指联动腱 -->
+    <fixed name="little_finger_tendon">
+      <joint joint="little_finger_slide"    coef="1"/>
+      <joint joint="little_finger_proximal" coef="-1"/>
+      <joint joint="little_finger_distal"   coef="-1"/>
+    </fixed>
+
+    <!-- 拇指联动腱 -->
+    <fixed name="thumb_tendon">
+      <joint joint="thumb_rotation" coef="1"/>
+      <joint joint="thumb_proximal" coef="-1"/>
+      <joint joint="thumb_distal"   coef="-0.8"/>
+    </fixed>
+  </tendon>
+
+  <!-- =================================================================================
+   执行器定义: 定义如何控制模型 (电机、液压等)
+   ================================================================================= -->
+  <actuator>
+    <!-- 屈曲/弯曲执行器 (作用于腱) -->
+    <position name="index_finger_flex"  tendon="index_finger_tendon"  kp="100" ctrllimited="true" ctrlrange="-1.0 1.0"/>
+    <position name="middle_finger_flex" tendon="middle_finger_tendon" kp="100" ctrllimited="true" ctrlrange="-1.0 1.0"/>
+    <position name="ring_finger_flex"   tendon="ring_finger_tendon"   kp="100" ctrllimited="true" ctrlrange="-1.0 1.0"/>
+    <position name="little_finger_flex" tendon="little_finger_tendon" kp="100" ctrllimited="true" ctrlrange="-1.0 1.0"/>
+    <position name="thumb_flex"         tendon="thumb_tendon"         kp="100" ctrllimited="true" ctrlrange="-1.0 1.0"/>
+
+    <!-- 外展执行器 (直接作用于关节) -->
+    <position name="index_finger_ab"  joint="index_finger_abpart"  kp="100" ctrllimited="true" ctrlrange="-0.3 0.3"/>
+    <position name="middle_finger_ab" joint="middle_finger_abpart" kp="100" ctrllimited="true" ctrlrange="-0.3 0.3"/>
+    <position name="ring_finger_ab"   joint="ring_finger_abpart"   kp="100" ctrllimited="true" ctrlrange="-0.3 0.3"/>
+    <position name="little_finger_ab" joint="little_finger_abpart" kp="100" ctrllimited="true" ctrlrange="-0.3 0.3"/>
+    <position name="thumb_rot"        joint="thumb_rotation"       kp="100" ctrllimited="true" ctrlrange="-0.5 1.0"/>
+  </actuator>
+
+  <!-- =================================================================================
+   关键帧定义: 预设模型的姿态，方便测试和初始化
+   ================================================================================= -->
+  <keyframe>
+    <!-- 模型总共有19个自由度 (4*4 + 3), qpos长度必须为19 -->
+    <key name="home" qpos="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+  </keyframe>
+</mujoco>
