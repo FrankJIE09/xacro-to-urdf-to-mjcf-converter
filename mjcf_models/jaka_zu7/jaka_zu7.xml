@@ -2,13 +2,13 @@
 <mujoco model="jaka_zu7">
   <compiler angle="radian" />
   <asset>
-    <mesh name="Link_0" content_type="model/stl" file="Link_0.STL" />
-    <mesh name="Link_1" content_type="model/stl" file="Link_1.STL" />
-    <mesh name="Link_2" content_type="model/stl" file="Link_2.STL" />
-    <mesh name="Link_3" content_type="model/stl" file="Link_3.STL" />
-    <mesh name="Link_4" content_type="model/stl" file="Link_4.STL" />
-    <mesh name="Link_5" content_type="model/stl" file="Link_5.STL" />
-    <mesh name="Link_6" content_type="model/stl" file="Link_6.STL" />
+    <mesh name="Link_0" file="Link_0.STL" />
+    <mesh name="Link_1" file="Link_1.STL" />
+    <mesh name="Link_2" file="Link_2.STL" />
+    <mesh name="Link_3" file="Link_3.STL" />
+    <mesh name="Link_4" file="Link_4.STL" />
+    <mesh name="Link_5" file="Link_5.STL" />
+    <mesh name="Link_6" file="Link_6.STL" />
   </asset>
   <worldbody>
     <geom type="mesh" rgba="0.84706 0.84706 0.84706 1" mesh="Link_0" />

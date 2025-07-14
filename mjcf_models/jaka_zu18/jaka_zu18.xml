@@ -2,7 +2,7 @@
 <mujoco model="jaka_zu18">
   <compiler angle="radian" />
   <asset>
-    <mesh name="base_link" content_type="model/stl" file="base_link.STL" />
+    <mesh name="base_link" file="base_link.STL" />
     <mesh name="Link_01" content_type="model/stl" file="Link_01.STL" />
     <mesh name="Link_02" content_type="model/stl" file="Link_02.STL" />
     <mesh name="Link_03" content_type="model/stl" file="Link_03.STL" />
