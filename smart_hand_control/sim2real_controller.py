@@ -140,15 +140,10 @@ class Sim2RealController:
         
     def setup_logging(self):
         """配置日志系统"""
-        logging.basicConfig(
-            level=logging.INFO,
-            format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-            handlers=[
-                logging.FileHandler('sim2real_controller.log'),
-                logging.StreamHandler()
-            ]
-        )
+        # 禁用日志输出
+        logging.getLogger().setLevel(logging.ERROR)
         self.logger = logging.getLogger('Sim2RealController')
+        self.logger.setLevel(logging.ERROR)
     
     def initialize_pygame_display(self):
         """初始化pygame显示窗口"""
@@ -407,10 +402,8 @@ class Sim2RealController:
                             real_position = self.map_angle_to_ohand(finger_name, mujoco_angles[finger_name])
                             self.current_ohand_positions[finger_name] = real_position
                     
-                    # 记录状态 (可选)
-                    if self.logger.isEnabledFor(logging.DEBUG):
-                        self.logger.debug(f"MuJoCo angles: {mujoco_angles}")
-                        self.logger.debug(f"OHand status: {ohand_status}")
+                    # 移除调试日志输出
+                    pass
                     
                     self.last_update_time = current_time
                 
@@ -471,6 +464,12 @@ class Sim2RealController:
 
             # 启动官方viewer
             with mujoco.viewer.launch_passive(self.mujoco_model, self.mujoco_data) as viewer:
+                # 设置默认相机视角
+                viewer.cam.azimuth = -1.17
+                viewer.cam.elevation = 89.00
+                viewer.cam.distance = 0.30
+                viewer.cam.lookat[:] = [-0.09, -0.00, 0.01]
+                
                 last_display_time = 0
                 display_interval = 0.5  # 显示更新间隔（秒）
                 
