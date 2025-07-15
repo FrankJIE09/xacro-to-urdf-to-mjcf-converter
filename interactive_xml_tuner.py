@@ -6,7 +6,7 @@ from pynput import keyboard
 
 # 定义要加载的XML文件路径
 # Define the path to the XML file to be loaded
-xml_path = 'mjcf_models/rohand_left/rohand_left.xml'
+xml_path = 'smart_hand-robot.xml'
 
 
 # 这个列表用作一个可变标志，以便在回调函数中修改它，并在主循环中检测到变化

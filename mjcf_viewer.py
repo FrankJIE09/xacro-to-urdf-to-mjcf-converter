@@ -149,7 +149,7 @@ class MJCFViewer:
                 # 同步查看器
                 viewer.sync()
                 # 控制更新频率
-                time.sleep(0.01)
+                # time.sleep(0.01)
 
     def control_loop(self):
         """关节控制循环"""
