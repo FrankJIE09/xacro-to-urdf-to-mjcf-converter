@@ -14,27 +14,27 @@
     <geom type="mesh" rgba="0.84706 0.84706 0.84706 1" mesh="Link_0" />
     <body name="Link_1" pos="0 0 0.15055">
       <inertial pos="-3.8197e-07 0.0039623 -0.0033438" quat="0.999916 -0.0129312 2.81325e-06 6.3945e-05" mass="7.0387" diaginertia="0.012561 0.0119213 0.00854834" />
-      <joint name="joint_1" pos="0 0 0" axis="0 0 -1" />
+      <joint name="joint_1" pos="0 0 0" axis="0 0 -1" damping="100"/>
       <geom type="mesh" rgba="0.84706 0.84706 0.84706 1" mesh="Link_1" />
       <body name="Link_2" quat="0.707105 0.707108 0 0">
         <inertial pos="0.11439 -6.6036e-07 -0.11395" quat="0.502193 0.4978 0.497799 0.502188" mass="18.247" diaginertia="0.21741 0.209284 0.0254168" />
-        <joint name="joint_2" pos="0 0 0" axis="0 0 1" />
+        <joint name="joint_2" pos="0 0 0" axis="0 0 1" damping="100"/>
         <geom type="mesh" rgba="0.84706 0.84706 0.84706 1" mesh="Link_2" />
         <body name="Link_3" pos="0.248 0 0">
           <inertial pos="0.13218 1.2348e-05 -0.0083734" quat="0.504072 0.495899 0.495887 0.504074" mass="9.5247" diaginertia="0.088902 0.0849672 0.00944989" />
-          <joint name="joint_3" pos="0 0 0" axis="0 0 1" />
+          <joint name="joint_3" pos="0 0 0" axis="0 0 1" damping="100"/>
           <geom type="mesh" rgba="0.84706 0.84706 0.84706 1" mesh="Link_3" />
           <body name="Link_4" pos="0.228 1.1925e-05 -0.115">
             <inertial pos="6.5068e-08 -0.014052 0.0031614" quat="0.683839 0.729633 2.78488e-05 -2.9483e-05" mass="3.8728" diaginertia="0.0058546 0.00564566 0.00257644" />
-            <joint name="joint_4" pos="0 0 0" axis="0 0 1" />
-            <geom type="mesh" rgba="0.84706 0.84706 0.84706 1" mesh="Link_4" />
+            <joint name="joint_4" pos="0 0 0" axis="0 0 1"  damping="100"/>
+            <geom type="mesh" rgba="0.84706 0.84706 0.84706 1" mesh="Link_4"/>
             <body name="Link_5" pos="0 -0.1175 0" quat="0.707105 0.707108 0 0">
               <inertial pos="7.9256e-08 0.0068655 -0.0029086" quat="0.697509 0.716576 -1.61772e-05 1.57467e-05" mass="4.3241" diaginertia="0.007903 0.00768273 0.00282457" />
-              <joint name="joint_5" pos="0 0 0" axis="0 0 -1" />
-              <geom type="mesh" rgba="0.84706 0.84706 0.84706 1" mesh="Link_5" />
+              <joint name="joint_5" pos="0 0 0" axis="0 0 -1" damping="100"/>
+              <geom type="mesh" rgba="0.84706 0.84706 0.84706 1" mesh="Link_5"/>
               <body name="Link_6" pos="0 0.1065 0" quat="0.707105 -0.707108 0 0">
                 <inertial pos="4.9731e-05 -2.965e-05 -0.016372" quat="-0.0706956 0.702649 0.0733535 0.704206" mass="0.7876" diaginertia="0.000456353 0.000285202 0.000281695" />
-                <joint name="joint_6" pos="0 0 0" axis="0 0 -1" />
+                <joint name="joint_6" pos="0 0 0" axis="0 0 -1" damping="100"/>
                 <geom type="mesh" rgba="0.84706 0.84706 0.84706 1" mesh="Link_6" />
               </body>
             </body>
@@ -44,12 +44,19 @@
     </body>
   </worldbody>
   <actuator>
-    <general name="joint_1_actuator" joint="joint_1" gainprm="1" ctrlrange="-3.14 3.14" />
-    <general name="joint_2_actuator" joint="joint_2" gainprm="1" ctrlrange="-3.14 3.14" />
-    <general name="joint_3_actuator" joint="joint_3" gainprm="1" ctrlrange="-3.14 3.14" />
-    <general name="joint_4_actuator" joint="joint_4" gainprm="1" ctrlrange="-3.14 3.14" />
-    <general name="joint_5_actuator" joint="joint_5" gainprm="1" ctrlrange="-3.14 3.14" />
-    <general name="joint_6_actuator" joint="joint_6" gainprm="1" ctrlrange="-3.14 3.14" />
+            <position name="elfin_joint1_actuator" joint="joint_1" kp="1000"  kv="10" ctrllimited="true" ctrlrange="-3.14 3.14"/>
+    <position name="elfin_joint2_actuator" joint="joint_2" kp="100" kv="10" ctrllimited="true" ctrlrange="-2.35 2.35" />
+    <position name="elfin_joint3_actuator" joint="joint_3" kp="100" kv="10" ctrllimited="true" ctrlrange="-2.61 2.61" />
+    <position name="elfin_joint4_actuator" joint="joint_4" kp="100" kv="10" ctrllimited="true" ctrlrange="-3.14 3.14" />
+    <position name="elfin_joint5_actuator" joint="joint_5" kp="100" kv="10" ctrllimited="true" ctrlrange="-2.56 2.56" />
+    <position name="elfin_joint6_actuator" joint="joint_6" kp="100" kv="10" ctrllimited="true" ctrlrange="-3.14 3.14" />
+
+<!--    <general name="joint_1_actuator" joint="joint_1" gainprm="1" ctrlrange="-3.14 3.14" />-->
+<!--    <general name="joint_2_actuator" joint="joint_2" gainprm="1" ctrlrange="-3.14 3.14" />-->
+<!--    <general name="joint_3_actuator" joint="joint_3" gainprm="1" ctrlrange="-3.14 3.14" />-->
+<!--    <general name="joint_4_actuator" joint="joint_4" gainprm="1" ctrlrange="-3.14 3.14" />-->
+<!--    <general name="joint_5_actuator" joint="joint_5" gainprm="1" ctrlrange="-3.14 3.14" />-->
+<!--    <general name="joint_6_actuator" joint="joint_6" gainprm="1" ctrlrange="-3.14 3.14" />-->
   </actuator>
   <keyframe>
     <key name="home" qpos="0 0 0 0 0 0" />

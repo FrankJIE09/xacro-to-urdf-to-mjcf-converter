@@ -83,7 +83,7 @@ try:
 
         # 设置重力为0
         # Set gravity to zero
-        model.opt.gravity[:] = [0, 0, 0]
+        model.opt.gravity[:] = [0, 0, 9.6]
         print(f"✅ 重力已设置为: {model.opt.gravity}")
 
         # 使用 launch_passive 启动查看器
@@ -96,10 +96,10 @@ try:
 
             # 设置默认相机视角
             # Set default camera view
-            viewer.cam.azimuth = -89.82
-            viewer.cam.elevation = 5.32
-            viewer.cam.distance = 0.29
-            viewer.cam.lookat[:] = [-0.09, -0.02, 0.01]
+            viewer.cam.azimuth = -31.88
+            viewer.cam.elevation = -56.94
+            viewer.cam.distance = 2.76
+            viewer.cam.lookat[:] = [-0.08, -0.01, 1.00]
             
             # 不再需要绑定 MuJoCo 的键盘回调
             # No longer need to set MuJoCo's key callback
@@ -131,7 +131,7 @@ try:
 
                 mujoco.mj_step(model, data)
                 viewer.sync()
-
+                # time.sleep(0.01)
                 time_until_next_step = model.opt.timestep - (time.time() - step_start)
                 if time_until_next_step > 0:
                     time.sleep(time_until_next_step)

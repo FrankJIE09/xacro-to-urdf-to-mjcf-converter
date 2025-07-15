@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<mujoco model="elfin15_rohand_right_combined">
+<mujoco model="elfin15_rohand_combined">
   <compiler angle="radian" />
   <asset>
     <mesh name="elfin_base" file="elfin_base.STL" />
@@ -197,38 +197,67 @@
       </body>
     </body>
   </worldbody>
+  <tendon>
+    <!-- 食指腱索系统：协调的5关节弯曲机制 -->
+    <fixed name="index_finger_tendon">
+      <joint joint="rohand_if_slider_link"       coef="1"/>      <!-- 滑动关节：主驱动源 -->
+      <joint joint="rohand_if_proximal_link"     coef="-.069"/>   <!-- 近端关节：80%耦合，主要弯曲 -->
+      <joint joint="rohand_if_distal_link"       coef="-.069"/>   <!-- 远端关节：60%耦合，指尖弯曲 -->
+      <joint joint="rohand_if_connecting_link"   coef="-.069"/>   <!-- 连接关节：40%耦合，辅助动作 -->
+    </fixed>
+
+    <!-- 中指腱索系统：调整为与食指相同的比例 -->
+    <fixed name="middle_finger_tendon">
+      <joint joint="rohand_mf_slider_link"       coef="1"/>      <!-- 滑动关节：主驱动源 -->
+      <joint joint="rohand_mf_proximal_link"     coef="-.069"/>   <!-- 近端关节：调整为相同比例 -->
+      <joint joint="rohand_mf_distal_link"       coef="-.069"/>   <!-- 远端关节：调整为相同比例 -->
+      <joint joint="rohand_mf_connecting_link"   coef="-.069"/>   <!-- 连接关节：调整为相同比例 -->
+    </fixed>
+
+    <!-- 无名指腱索系统：调整为与食指相同的比例 -->
+    <fixed name="ring_finger_tendon">
+      <joint joint="rohand_rf_slider_link"       coef="1"/>      <!-- 滑动关节：主驱动源 -->
+      <joint joint="rohand_rf_proximal_link"     coef="-.069"/>   <!-- 近端关节：调整为相同比例 -->
+      <joint joint="rohand_rf_distal_link"       coef="-.069"/>   <!-- 远端关节：调整为相同比例 -->
+      <joint joint="rohand_rf_connecting_link"   coef="-.069"/>   <!-- 连接关节：调整为相同比例 -->
+    </fixed>
+
+    <!-- 小指腱索系统：调整为与食指相同的比例 -->
+    <fixed name="little_finger_tendon">
+      <joint joint="rohand_lf_slider_link"       coef="1"/>      <!-- 滑动关节：主驱动源 -->
+      <joint joint="rohand_lf_proximal_link"     coef="-.069"/>   <!-- 近端关节：调整为相同比例 -->
+      <joint joint="rohand_lf_distal_link"       coef="-.069"/>   <!-- 远端关节：调整为相同比例 -->
+      <joint joint="rohand_lf_connecting_link"   coef="-.069"/>   <!-- 连接关节：调整为相同比例 -->
+    </fixed>
+
+    <!-- 拇指腱索系统：调整为与食指相同的比例 -->
+    <fixed name="thumb_tendon">
+      <joint joint="rohand_th_slider_link"       coef="1"/>      <!-- 滑动关节：主驱动源 -->
+      <joint joint="rohand_th_proximal_link"     coef="-2"/>   <!-- 近端关节：调整为相同比例 -->
+      <joint joint="rohand_th_distal_link"       coef="-.02"/>   <!-- 远端关节：调整为相同比例 -->
+      <joint joint="rohand_th_connecting_link"   coef="-.069"/>   <!-- 连接关节：调整为相同比例 -->
+    </fixed>
+
+
+  </tendon>
   <actuator>
+    <position name="index_finger_flex"  tendon="index_finger_tendon"  kp="100" ctrllimited="true" ctrlrange="-0.05 0.25"/>  <!-- 食指弯曲控制 -->
+    <position name="middle_finger_flex" tendon="middle_finger_tendon" kp="100" ctrllimited="true" ctrlrange="-0.05 0.25"/>  <!-- 中指弯曲控制 -->
+    <position name="ring_finger_flex"   tendon="ring_finger_tendon"   kp="100" ctrllimited="true" ctrlrange="-0.05 0.25"/>  <!-- 无名指弯曲控制 -->
+    <position name="little_finger_flex" tendon="little_finger_tendon" kp="100" ctrllimited="true" ctrlrange="-0.05 0.25"/>  <!-- 小指弯曲控制 -->
+    <position name="thumb_flex"         tendon="thumb_tendon"         kp="100" ctrllimited="true" ctrlrange="-0.05 1"/>  <!-- 拇指弯曲控制 -->
+
+    <!-- =================================================================================
+     拇指旋转执行器：独立控制拇指的对掌运动
+     ================================================================================= -->
+    <position name="thumb_rot"        joint="rohand_th_root_link"       kp="100" ctrllimited="true" ctrlrange="-0.035 1.605"/>  <!-- 拇指旋转控制 -->
+
     <general name="elfin_joint1_actuator" joint="elfin_joint1" gainprm="1" ctrlrange="-3.14 3.14" />
     <general name="elfin_joint2_actuator" joint="elfin_joint2" gainprm="1" ctrlrange="-3.14 3.14" />
     <general name="elfin_joint3_actuator" joint="elfin_joint3" gainprm="1" ctrlrange="-3.14 3.14" />
     <general name="elfin_joint4_actuator" joint="elfin_joint4" gainprm="1" ctrlrange="-3.14 3.14" />
     <general name="elfin_joint5_actuator" joint="elfin_joint5" gainprm="1" ctrlrange="-3.14 3.14" />
     <general name="elfin_joint6_actuator" joint="elfin_joint6" gainprm="1" ctrlrange="-3.14 3.14" />
-    <general name="rohand_if_slider_link_actuator" joint="rohand_if_slider_link" gainprm="1" ctrlrange="-1 1" />
-    <general name="rohand_if_slider_abpart_link_actuator" joint="rohand_if_slider_abpart_link" gainprm="1" ctrlrange="-3.14 3.14" />
-    <general name="rohand_if_proximal_link_actuator" joint="rohand_if_proximal_link" gainprm="1" ctrlrange="-3.14 3.14" />
-    <general name="rohand_if_distal_link_actuator" joint="rohand_if_distal_link" gainprm="1" ctrlrange="-3.14 3.14" />
-    <general name="rohand_if_connecting_link_actuator" joint="rohand_if_connecting_link" gainprm="1" ctrlrange="-3.14 3.14" />
-    <general name="rohand_mf_slider_link_actuator" joint="rohand_mf_slider_link" gainprm="1" ctrlrange="-1 1" />
-    <general name="rohand_mf_slider_abpart_link_actuator" joint="rohand_mf_slider_abpart_link" gainprm="1" ctrlrange="-3.14 3.14" />
-    <general name="rohand_mf_proximal_link_actuator" joint="rohand_mf_proximal_link" gainprm="1" ctrlrange="-3.14 3.14" />
-    <general name="rohand_mf_distal_link_actuator" joint="rohand_mf_distal_link" gainprm="1" ctrlrange="-3.14 3.14" />
-    <general name="rohand_mf_connecting_link_actuator" joint="rohand_mf_connecting_link" gainprm="1" ctrlrange="-3.14 3.14" />
-    <general name="rohand_rf_slider_link_actuator" joint="rohand_rf_slider_link" gainprm="1" ctrlrange="-1 1" />
-    <general name="rohand_rf_slider_abpart_link_actuator" joint="rohand_rf_slider_abpart_link" gainprm="1" ctrlrange="-3.14 3.14" />
-    <general name="rohand_rf_proximal_link_actuator" joint="rohand_rf_proximal_link" gainprm="1" ctrlrange="-3.14 3.14" />
-    <general name="rohand_rf_distal_link_actuator" joint="rohand_rf_distal_link" gainprm="1" ctrlrange="-3.14 3.14" />
-    <general name="rohand_rf_connecting_link_actuator" joint="rohand_rf_connecting_link" gainprm="1" ctrlrange="-3.14 3.14" />
-    <general name="rohand_lf_slider_link_actuator" joint="rohand_lf_slider_link" gainprm="1" ctrlrange="-1 1" />
-    <general name="rohand_lf_slider_abpart_link_actuator" joint="rohand_lf_slider_abpart_link" gainprm="1" ctrlrange="-3.14 3.14" />
-    <general name="rohand_lf_proximal_link_actuator" joint="rohand_lf_proximal_link" gainprm="1" ctrlrange="-3.14 3.14" />
-    <general name="rohand_lf_distal_link_actuator" joint="rohand_lf_distal_link" gainprm="1" ctrlrange="-3.14 3.14" />
-    <general name="rohand_lf_connecting_link_actuator" joint="rohand_lf_connecting_link" gainprm="1" ctrlrange="-3.14 3.14" />
-    <general name="rohand_th_root_link_actuator" joint="rohand_th_root_link" gainprm="1" ctrlrange="-3.14 3.14" />
-    <general name="rohand_th_proximal_link_actuator" joint="rohand_th_proximal_link" gainprm="1" ctrlrange="-3.14 3.14" />
-    <general name="rohand_th_slider_link_actuator" joint="rohand_th_slider_link" gainprm="1" ctrlrange="-1 1" />
-    <general name="rohand_th_connecting_link_actuator" joint="rohand_th_connecting_link" gainprm="1" ctrlrange="-3.14 3.14" />
-    <general name="rohand_th_distal_link_actuator" joint="rohand_th_distal_link" gainprm="1" ctrlrange="-3.14 3.14" />
   </actuator>
   <keyframe>
     <key name="home" qpos="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" />

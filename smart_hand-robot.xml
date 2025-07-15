@@ -1,7 +1,6 @@
 <mujoco model="smart_hand-robot scene">
 
-  <include file="mjcf_models/elfin15/elfin15_.xml"/>
-  <include file="mjcf_models/rohand_left/rohand_left_.xml"/>
+  <include file="mjcf_models/elfin15_rohand_left_combined/elfin15_rohand_left.xml"/>
 
   <statistic center="0.3 0 0.4" extent="0.8"/>
 
@@ -23,9 +22,5 @@
     <geom name="floor" size="0 0 0.05" type="plane" material="groundplane"/>
 <!--    <geom name="red_box" type="box" size="1 0.02 1" rgba="1 0 0 1"  pos="0.2 0.5 .2"/>-->
   </worldbody>
-  <keyframe>
-
-    <key name="home" qpos="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
-  </keyframe>
 
 </mujoco>
