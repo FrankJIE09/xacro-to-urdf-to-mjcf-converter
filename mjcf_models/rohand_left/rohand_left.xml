@@ -168,25 +168,30 @@
     <!-- Middle Finger -->
     <joint joint1="mf_distal_link" joint2="mf_proximal_link" polycoef="0 1 0 0 0"/>
     <joint joint1="mf_slider_link" joint2="mf_proximal_link" polycoef="0 -0.1 0 0 0"/>
+    <joint joint1="mf_connecting_link" joint2="mf_proximal_link" polycoef="0 1 0 0 0"/>
 
     <!-- Ring Finger -->
     <joint joint1="rf_distal_link" joint2="rf_proximal_link" polycoef="0 1 0 0 0"/>
     <joint joint1="rf_slider_link" joint2="rf_proximal_link" polycoef="0 -0.1 0 0 0"/>
+    <joint joint1="rf_connecting_link" joint2="rf_proximal_link" polycoef="0 1 0 0 0"/>
 
     <!-- Little Finger -->
     <joint joint1="lf_distal_link" joint2="lf_proximal_link" polycoef="0 1 0 0 0"/>
     <joint joint1="lf_slider_link" joint2="lf_proximal_link" polycoef="0 -0.1 0 0 0"/>
+    <joint joint1="lf_connecting_link" joint2="lf_proximal_link" polycoef="0 1 0 0 0"/>
 
     <!-- Thumb -->
     <joint joint1="th_distal_link" joint2="th_proximal_link" polycoef="0 0.5 0 0 0"/>
-    <joint joint1="th_slider_link" joint2="th_proximal_link" polycoef="0 -0.2 0 0 0"/>
+    <joint joint1="th_slider_link" joint2="th_proximal_link" polycoef="-0.013 -0.005 0 0 0"/>
+    <joint joint1="th_connecting_link" joint2="th_proximal_link" polycoef="0 1 0 0 0"/>
+
   </equality>
   <actuator>
-    <position name="index_finger"  joint="if_proximal_link"  kp="10"  ctrllimited="true" ctrlrange="-1.57 0.3"/>
-    <position name="middle_finger"  joint="mf_proximal_link"  kp="10" ctrllimited="true" ctrlrange="-1.57 0"/>
-    <position name="ring_finger"   joint="rf_proximal_link"   kp="10" ctrllimited="true" ctrlrange="-1.57 0"/>
-    <position name="little_finger" joint="lf_proximal_link" kp="10" ctrllimited="true" ctrlrange="-1.57 0"/>
-    <position name="thumb_flex"         joint="th_proximal_link"         kp="10" ctrllimited="true" ctrlrange="-1.57 0"/>
+    <position name="index_finger"  joint="if_proximal_link"  kp="10"  ctrllimited="true" ctrlrange="-1.27 0.3"/>
+    <position name="middle_finger"  joint="mf_proximal_link"  kp="10" ctrllimited="true" ctrlrange="-1.27 0.3"/>
+    <position name="ring_finger"   joint="rf_proximal_link"   kp="10" ctrllimited="true" ctrlrange="-1.27 0.30"/>
+    <position name="little_finger" joint="lf_proximal_link" kp="10" ctrllimited="true" ctrlrange="-1.27 0.3"/>
+    <position name="thumb_flex"         joint="th_proximal_link"         kp="10" ctrllimited="true" ctrlrange="-0.5 0.3"/>
     <position name="thumb_rot"        joint="th_root_link"       kp="100" ctrllimited="true" ctrlrange="-0.035 1.605"/>
   </actuator>
   <keyframe>

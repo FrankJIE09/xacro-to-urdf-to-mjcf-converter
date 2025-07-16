@@ -952,3 +952,111 @@ WARNING: Child model has pending keyframes. They will not be namespaced correctl
 Wed Jul 16 13:28:50 2025
 WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
 
+Wed Jul 16 13:34:51 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:35:43 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:36:03 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:36:19 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:36:27 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:44:13 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:44:24 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:45:59 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:46:13 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:46:33 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:47:27 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:48:10 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:48:20 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:48:51 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:49:23 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:50:48 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:51:13 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:51:29 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:51:53 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:52:06 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:52:28 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:52:34 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:52:52 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:53:18 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:53:43 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:53:55 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:54:01 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:54:07 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:54:15 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:54:41 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:54:50 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:56:02 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:56:09 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:56:16 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:56:21 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+
+Wed Jul 16 13:56:27 2025
+WARNING: Child model has pending keyframes. They will not be namespaced correctly. To prevent this, compile the child model before attaching it again.
+

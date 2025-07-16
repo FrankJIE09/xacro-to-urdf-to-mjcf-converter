@@ -44,13 +44,12 @@
     </body>
   </worldbody>
   <actuator>
-        <position name="elfin_joint1_actuator" joint="shoulder_pan_joint" kp="1000"  kv="10" ctrllimited="true" ctrlrange="-3.14 3.14"/>
-    <position name="elfin_joint2_actuator" joint="shoulder_lift_joint" kp="100" kv="10" ctrllimited="true" ctrlrange="-2.35 2.35" />
-    <position name="elfin_joint3_actuator" joint="elbow_joint" kp="100" kv="10" ctrllimited="true" ctrlrange="-2.61 2.61" />
-    <position name="elfin_joint4_actuator" joint="wrist_1_joint" kp="100" kv="10" ctrllimited="true" ctrlrange="-3.14 3.14" />
-    <position name="elfin_joint5_actuator" joint="wrist_2_joint" kp="100" kv="10" ctrllimited="true" ctrlrange="-2.56 2.56" />
-    <position name="elfin_joint6_actuator" joint="wrist_3_joint" kp="100" kv="10" ctrllimited="true" ctrlrange="-3.14 3.14" />
-
+    <general name="shoulder_pan_joint_actuator" joint="shoulder_pan_joint" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="shoulder_lift_joint_actuator" joint="shoulder_lift_joint" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="elbow_joint_actuator" joint="elbow_joint" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="wrist_1_joint_actuator" joint="wrist_1_joint" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="wrist_2_joint_actuator" joint="wrist_2_joint" gainprm="1" ctrlrange="-3.14 3.14" />
+    <general name="wrist_3_joint_actuator" joint="wrist_3_joint" gainprm="1" ctrlrange="-3.14 3.14" />
   </actuator>
   <keyframe>
     <key name="home" qpos="0 0 0 0 0 0" />
