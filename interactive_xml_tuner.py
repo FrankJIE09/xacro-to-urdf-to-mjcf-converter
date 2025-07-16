@@ -6,7 +6,7 @@ from pynput import keyboard
 
 # 定义要加载的XML文件路径
 # Define the path to the XML file to be loaded
-xml_path = 'smart_hand-robot.xml'
+xml_path = 'smart_hand_scene.xml'
 
 
 # 这个列表用作一个可变标志，以便在回调函数中修改它，并在主循环中检测到变化
@@ -83,7 +83,7 @@ try:
 
         # 设置重力为0
         # Set gravity to zero
-        model.opt.gravity[:] = [0, 0, 9.6]
+        model.opt.gravity[:] = [0, 0, 0]
         print(f"✅ 重力已设置为: {model.opt.gravity}")
 
         # 使用 launch_passive 启动查看器
@@ -96,10 +96,10 @@ try:
 
             # 设置默认相机视角
             # Set default camera view
-            viewer.cam.azimuth = -31.88
-            viewer.cam.elevation = -56.94
-            viewer.cam.distance = 2.76
-            viewer.cam.lookat[:] = [-0.08, -0.01, 1.00]
+            viewer.cam.azimuth = -28.17
+            viewer.cam.elevation = -14.98
+            viewer.cam.distance = 0.30
+            viewer.cam.lookat[:] = [-0.05, 0.03, 1.96]
             
             # 不再需要绑定 MuJoCo 的键盘回调
             # No longer need to set MuJoCo's key callback
