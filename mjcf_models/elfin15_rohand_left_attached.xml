@@ -64,7 +64,4 @@
     <position name="elfin_joint5_actuator" joint="elfin_joint5" class="elfin_arm" ctrlrange="-2.56 2.56"/>
     <position name="elfin_joint6_actuator" joint="elfin_joint6" class="elfin_arm" ctrlrange="-3.14 3.14"/>
   </actuator>
-  <keyframe>
-    <key name="home" qpos="0 0 0 0 0 0" />
-  </keyframe>
 </mujoco> 
