@@ -129,6 +129,13 @@ def convert_robot(robot_type, robot_name, project_root):
     elif robot_type == 'jaka':
         urdf_path = os.path.join(project_root, 'jaka_description', 'urdf', f'{robot_name}.urdf')
         mesh_source_dir = os.path.join(project_root, 'jaka_description', 'meshes')
+    elif robot_type == 'tj_arm':
+        # tj_arm的URDF可能在子目录中
+        urdf_path = os.path.join(project_root, 'tj_arm_description', 'urdf', f'{robot_name}.urdf')
+        # 如果不在根目录，尝试在TJ_arm子目录中查找
+        if not os.path.exists(urdf_path):
+            urdf_path = os.path.join(project_root, 'tj_arm_description', 'urdf', 'TJ_arm', f'{robot_name}.urdf')
+        mesh_source_dir = os.path.join(project_root, 'tj_arm_description', 'meshes')
     else:
         print(f"❌ 不支持的机器人类型: {robot_type}")
         return False
@@ -247,9 +254,23 @@ def main():
         for f in os.listdir(jaka_urdf_dir):
             if f.endswith('.urdf'):
                 robots_to_convert.append(('jaka', f.replace('.urdf', '')))
+    # TJ_arm
+    tj_arm_urdf_dir = "tj_arm_description/urdf"
+    if os.path.isdir(tj_arm_urdf_dir):
+        # 扫描根目录
+        for f in os.listdir(tj_arm_urdf_dir):
+            if f.endswith('.urdf'):
+                robots_to_convert.append(('tj_arm', f.replace('.urdf', '')))
+        # 扫描子目录（如TJ_arm）
+        for item in os.listdir(tj_arm_urdf_dir):
+            subdir_path = os.path.join(tj_arm_urdf_dir, item)
+            if os.path.isdir(subdir_path):
+                for f in os.listdir(subdir_path):
+                    if f.endswith('.urdf'):
+                        robots_to_convert.append(('tj_arm', f.replace('.urdf', '')))
 
     if not robots_to_convert:
-        print("❌ 未找到任何URDF文件，请检查elfin_description、ur_description、rohand_urdf_ros2和jaka_description目录。")
+        print("❌ 未找到任何URDF文件，请检查elfin_description、ur_description、rohand_urdf_ros2、jaka_description和tj_arm_description目录。")
         return
 
     success_count = 0
