@@ -136,6 +136,13 @@ def convert_robot(robot_type, robot_name, project_root):
         if not os.path.exists(urdf_path):
             urdf_path = os.path.join(project_root, 'tj_arm_description', 'urdf', 'TJ_arm', f'{robot_name}.urdf')
         mesh_source_dir = os.path.join(project_root, 'tj_arm_description', 'meshes')
+    elif robot_type == 'wujihand':
+        urdf_path = os.path.join(project_root, 'wujihand-urdf-main', 'urdf', f'{robot_name}.urdf')
+        # wujihand根据左右手选择不同的mesh目录
+        if 'left' in robot_name:
+            mesh_source_dir = os.path.join(project_root, 'wujihand-urdf-main', 'meshes', 'left')
+        else:  # right hand
+            mesh_source_dir = os.path.join(project_root, 'wujihand-urdf-main', 'meshes', 'right')
     else:
         print(f"❌ 不支持的机器人类型: {robot_type}")
         return False
@@ -268,9 +275,15 @@ def main():
                 for f in os.listdir(subdir_path):
                     if f.endswith('.urdf'):
                         robots_to_convert.append(('tj_arm', f.replace('.urdf', '')))
+    # Wujihand
+    wujihand_urdf_dir = "wujihand-urdf-main/urdf"
+    if os.path.isdir(wujihand_urdf_dir):
+        for f in os.listdir(wujihand_urdf_dir):
+            if f.endswith('.urdf'):
+                robots_to_convert.append(('wujihand', f.replace('.urdf', '')))
 
     if not robots_to_convert:
-        print("❌ 未找到任何URDF文件，请检查elfin_description、ur_description、rohand_urdf_ros2、jaka_description和tj_arm_description目录。")
+        print("❌ 未找到任何URDF文件，请检查elfin_description、ur_description、rohand_urdf_ros2、jaka_description、tj_arm_description和wujihand-urdf-main目录。")
         return
 
     success_count = 0
